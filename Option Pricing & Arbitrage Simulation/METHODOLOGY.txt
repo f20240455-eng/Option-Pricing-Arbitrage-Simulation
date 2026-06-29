@@ -1,0 +1,25 @@
+METHODOLOGY — Strike Squad
+
+1. Data Sources
+---------------
+Stock prices, dividends, risk-free rates, synthetic option chain.
+
+2. ETL Pipeline
+---------------
+Cleaning, volatility, dividend yield, synthetic pricing, ATM selection.
+
+3. Pricing Models
+-----------------
+BSM (European), CRR Binomial.
+
+4. Backtest Framework
+---------------------
+Daily PnL, ledger, metrics.
+
+5. Edge Case Handling
+---------------------
+Holiday expiry, dividends, low-liquidity filtering.
+
+6. Validation
+-------------
+Unit tests, parity checks, manual verification spreadsheet.

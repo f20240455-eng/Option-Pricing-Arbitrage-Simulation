@@ -1,0 +1,46 @@
+# Strike Squad - Python Dependencies
+# FIN F311 HDFCBANK Options Project
+# Updated: Nov 25, 2024
+
+# Core Data Science
+pandas>=2.1.0
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Visualization (for those beautiful charts Shubhra wants!)
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.17.0
+
+# Data Sources
+yfinance>=0.2.28        # For HDFC stock data from Yahoo Finance
+requests>=2.31.0        # For fetching RBI rates
+
+# Jupyter & Notebooks
+jupyter>=1.0.0
+notebook>=7.0.0
+ipykernel>=6.25.0
+ipywidgets>=8.1.0       # For interactive widgets in notebooks
+
+# Configuration & Utils
+pyyaml>=6.0
+python-dateutil>=2.8.2
+pytz>=2023.3
+
+# Excel Export (for sharing with teammates)
+openpyxl>=3.1.0
+xlsxwriter>=3.1.0
+
+# Testing (for validation)
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Progress Bars (because waiting is boring)
+tqdm>=4.66.0
+
+# Statistical Analysis
+statsmodels>=0.14.0
+
+# Code Quality (optional but recommended)
+black>=23.9.0           # Code formatter
+pylint>=2.17.0          # Code checker
