@@ -1,0 +1,147 @@
+# STRIKE SQUAD - HDFCBANK OPTIONS PROJECT
+# FIN F311 | Sem 2-1 | Sec L-1
+# Members: Shubhra Arora (2024A1PS0271P), Ayushya Ramesh Ojha, Palak, Hem Shah, Nikunj
+# Config file for data, pricing and backtesting parameters.
+
+project:
+  name: "HDFCBANK Options Analysis"
+  team: "Strike Squad"
+  course: "FIN F311"
+  created_by: "Shubhra Arora"
+  created_date: "2025-11-25"
+  version: "1.0"
+
+company:
+  name: "HDFC Bank Ltd"
+  ticker_yahoo: "HDFCBANK.NS"
+  ticker_nse: "HDFCBANK"
+  sector: "Banking"
+  rationale: >
+    HDFC Bank was selected due to liquidity, stable fundamentals and
+    consistent option chain availability during the two-year period.
+
+data:
+  # Last 2 years of daily data (as of Nov 2025)
+  start_date: "2023-11-01"
+  end_date: "2025-11-21"
+
+  stock_source: "yahoo_finance"
+  options_source: "nse_csv"           # Using downloaded NSE option chain
+  risk_free_source: "rbi_tbill_91d"
+  fallback_risk_free_rate: 0.065
+
+trading:
+  option_type: "call"
+  strike_selection: "ATM"
+  target_expiry_days: 30
+  expiry_tolerance_days: 7
+  min_days_to_expiry: 7
+  strike_rounding: 10
+  max_strike_distance_pct: 2.0
+
+capital:
+  initial_capital: 100000
+  equity_margin_pct: 20.0
+  option_premium_pct: 100.0
+
+  # Stock trading costs (approx NSE + common broker rates)
+  equity_brokerage_pct: 0.03
+  equity_stt_pct: 0.10
+  equity_exchange_charges_pct: 0.00345
+  equity_gst_pct: 18.0
+
+  # Option trading costs (buy side)
+  option_brokerage_flat: 20.0
+  option_stt_pct: 0.05
+  option_exchange_charges_pct: 0.05
+  option_gst_pct: 18.0
+
+liquidity:
+  min_open_interest: 100
+  max_bid_ask_spread_pct: 5.0
+  min_option_premium: 5.0
+  min_daily_volume: 50
+
+pricing:
+  binomial_steps_list: [10, 25, 50, 100, 200]
+  default_binomial_steps: 50
+  convergence_tolerance: 0.50
+
+  volatility_window_days: 30
+  volatility_annualization: 252
+
+  delta_bump_pct: 0.01
+  vega_bump_abs: 0.01
+
+backtest:
+  rebalance_frequency: "expiry"
+  settlement_lag_days: 1
+  use_next_trading_day_if_holiday: true
+
+  adjust_for_dividends: true
+  dividend_treatment: "discrete"
+
+  max_positions: 1
+  position_sizing: "fixed"
+
+  skip_illiquid_trades: true
+  log_skipped_trades: true
+
+analysis:
+  metrics:
+    - total_return
+    - total_return_pct
+    - win_rate
+    - avg_trade_return
+    - max_drawdown
+    - sharpe_ratio
+    - sortino_ratio
+    - profit_factor
+    - best_trade
+    - worst_trade
+
+  plot_style: "seaborn-v0_8-darkgrid"
+  figure_size_default: [12, 6]
+  figure_dpi: 300
+
+  color_actual: "#2E86AB"
+  color_synthetic: "#A23B72"
+
+  convergence_scenarios:
+    - low_volatility
+    - high_volatility
+    - near_expiry
+    - far_expiry
+    - ex_dividend
+
+  regimes:
+    high_vol_threshold: 30.0
+    low_vol_threshold: 20.0
+    bull_return_threshold: 5.0
+    bear_return_threshold: -5.0
+
+paths:
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  data_reference: "data/reference"
+  notebooks: "notebooks"
+  slides: "slides"
+  figures: "slides/figures"
+  results: "results"
+  tests: "tests"
+
+logging:
+  level: "INFO"
+  log_to_file: true
+  log_file: "logs/strike_squad.log"
+  console_output: true
+
+random_seed: 0271
+project:
+  name: "HDFCBANK Options Analysis"
+  team: "Strike Squad"
+  created_by: "Shubhra Arora"   # ← YOU MISSED THIS
+  student_id: "2024A1PS0271P"
+  created_date: "2025-11-25"
+  version: "1.0"
+
